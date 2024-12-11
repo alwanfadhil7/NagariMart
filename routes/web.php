@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,5 +21,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [ProductController::class, 'index']);
+Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
 
 require __DIR__ . '/auth.php';
