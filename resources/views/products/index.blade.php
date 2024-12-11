@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Online Shop</title>
+    <title>Nagari Mart</title>
 </head>
 
 <body>
