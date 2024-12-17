@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+
+
+Route::get('/electronics', [CategoryController::class, 'showElectronics']);
 
 
 Route::get('/', function () {
