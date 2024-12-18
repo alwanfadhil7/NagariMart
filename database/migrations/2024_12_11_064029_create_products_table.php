@@ -18,7 +18,8 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('stock');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('category_id')->constrained()->onDelete('cascade');
+            // migrations/xxxx_xx_xx_create_products_table.php
+            $table->unsignedBigInteger('category_id')->default(1); // Misalnya default 1
             $table->timestamps();
         });
     }

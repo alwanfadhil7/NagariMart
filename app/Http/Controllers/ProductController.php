@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function electronics()
     {
-        $products = [
-            ['name' => 'Laptop', 'price' => 1500, 'description' => 'High-performance laptop', 'image' => asset('images/Laptop.jpg')],
-            ['name' => 'Smartphone', 'price' => 800, 'description' => 'Latest smartphone model', 'image' => asset('images/Smartphone.jpg')],
-            ['name' => 'Headphone', 'price' => 200, 'description' => 'Noise-cancelling headphones', 'image' => asset('images/Headphone.jpg')],
-        ];
+        // Ambil produk dari database (gunakan Eloquent untuk ini)
+        $products = Product::all();  // Mengambil semua produk
 
         return view('categories.electronics', compact('products'));
     }
