@@ -6,9 +6,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Routes for Cart functionality
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');  // Add to cart

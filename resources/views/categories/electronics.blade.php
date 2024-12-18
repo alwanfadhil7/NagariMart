@@ -105,6 +105,8 @@
             <p class="mt-4">Your cart is empty.</p>
             @endif
         </div>
+        <!-- Sisipkan footer -->
+        @include('partials.footer')
     </div>
 
 </body>
