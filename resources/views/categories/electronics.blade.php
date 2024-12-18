@@ -1,4 +1,18 @@
 <div class="container my-5">
+    <!-- Search Bar -->
+    <div class="mb-4">
+        <input type="text" class="form-control" placeholder="Search products..." aria-label="Search">
+    </div>
+
+    <!-- Filter Options -->
+    <div class="mb-4">
+        <select class="form-select" aria-label="Filter by category">
+            <option selected>Filter by category</option>
+            <option value="1">Electronics</option>
+            <option value="2">Fashion</option>
+            <option value="3">Home Appliances</option>
+        </select>
+    </div>
     <!-- Judul Halaman -->
     <h1 class="text-center mb-4">Product List</h1>
 
@@ -10,6 +24,7 @@
             <div class="card h-100 shadow-sm card-hover">
 
                 <!-- Gambar Produk (Jika Ada) -->
+                <img src="{{ asset('images/' . $product['image']) }}" class="card-img-top" alt="{{ $product['name'] }}">
 
 
                 <!-- Detail Produk -->
