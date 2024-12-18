@@ -1,93 +1,112 @@
-<div class="container my-5">
-    <!-- Search Bar -->
-    <div class="mb-4">
-        <input type="text" class="form-control" placeholder="Search products..." aria-label="Search">
-    </div>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Filter Options -->
-    <div class="mb-4">
-        <select class="form-select" aria-label="Filter by category">
-            <option selected>Filter by category</option>
-            <option value="1">Electronics</option>
-            <option value="2">Fashion</option>
-            <option value="3">Home Appliances</option>
-        </select>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
 
-    <!-- Judul Halaman -->
-    <h1 class="text-center mb-4">Product List</h1>
+<body>
 
-    <!-- Grid Produk -->
-    <div class="row">
-        @foreach ($products as $product)
-        <div class="col-sm-6 col-md-4 mb-4">
-            <!-- Kartu Produk dengan Efek Hover -->
-            <div class="card h-100 shadow-sm card-hover">
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- Logo atau Judul Website -->
+            <div class="text-2xl font-bold text-gray-800">
+                Electronics Store
+            </div>
 
-                <!-- Gambar Produk -->
-                <img src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+            <!-- Navigation Bar -->
+            <nav class="space-x-6">
+                <a href="#" class="text-gray-600 hover:text-blue-500">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500">Shop</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500">Contact</a>
+            </nav>
 
-                <!-- Detail Produk -->
-                <div class="card-body">
-                    <!-- Nama Produk -->
-                    <h5 class="card-title">{{ $product->name }}</h5>
-
-                    <!-- Deskripsi Produk -->
-                    <p class="card-text text-muted">{{ $product->description }}</p>
-
-                    <!-- Harga Produk -->
-                    <p class="card-text fw-bold">${{ number_format($product->price, 2) }}</p>
-
-                    <!-- Tombol Tambah ke Keranjang dengan Ikon -->
-                    <a href="#" class="btn btn-gradient w-100 d-flex align-items-center justify-content-center">
-                        <i class="bi bi-cart me-2"></i> Add to Cart
-                    </a>
-
-                    <!-- Form untuk Menambahkan Produk ke Keranjang -->
-                    <form action="{{ route('cart.add') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
-                    </form>
-                </div>
+            <!-- Cart Icon dengan Jumlah Item -->
+            <div class="relative">
+                <a href="{{ route('cart.index') }}" class="text-gray-600 hover:text-blue-500 flex items-center space-x-2">
+                    <i class="fa fa-shopping-cart text-xl"></i>
+                    <span class="absolute top-0 right-0 text-xs bg-red-600 text-white rounded-full px-1 py-0.5">
+                        {{ session('cart') ? count(session('cart')) : 0 }}
+                    </span>
+                </a>
             </div>
         </div>
-        @endforeach
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto my-5 px-4">
+        <!-- Search Bar -->
+        <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Search products..." aria-label="Search">
+        </div>
+
+        <!-- Filter Options -->
+        <div class="mb-4">
+            <select class="form-select" aria-label="Filter by category">
+                <option selected>Filter by category</option>
+                <option value="1">Electronics</option>
+                <option value="2">Fashion</option>
+                <option value="3">Home Appliances</option>
+            </select>
+        </div>
+
+        <!-- Judul Halaman -->
+        <h1 class="text-center mb-4 text-3xl font-bold">Product List</h1>
+
+        <!-- Grid Produk -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            @foreach ($products as $product)
+            <div class="card border rounded-lg shadow-lg">
+                <!-- Gambar Produk -->
+                <img src="{{ asset('images/' . $product->image) }}" class="card-img-top rounded-t-lg" alt="{{ $product->name }}">
+
+                <!-- Detail Produk -->
+                <div class="card-body p-4">
+                    <!-- Nama Produk -->
+                    <h5 class="card-title text-xl font-semibold">{{ $product->name }}</h5>
+
+                    <!-- Deskripsi Produk -->
+                    <p class="card-text text-gray-600">{{ $product->description }}</p>
+
+                    <!-- Harga Produk -->
+                    <p class="text-lg font-bold">${{ number_format($product->price, 2) }}</p>
+
+                    <!-- Tombol Tambah ke Keranjang -->
+                    <a href="#" class="btn btn-gradient w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700 mt-4">Add to Cart</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        <!-- Keranjang -->
+        <div class="cart-info mt-8">
+            <a href="{{ route('cart.index') }}" class="text-gray-600 flex items-center space-x-2">
+                <i class="fa fa-shopping-cart text-xl"></i>
+                <span>Cart ({{ session('cart') ? count(session('cart')) : 0 }} items)</span>
+            </a>
+            @if(session('cart'))
+            <ul class="cart-items mt-4">
+                @foreach(session('cart') as $item)
+                <li class="flex justify-between py-2 border-b">
+                    <span>{{ $item['name'] }} ({{ $item['quantity'] }})</span>
+                    <span>${{ number_format($item['price'], 2) }} x {{ $item['quantity'] }} = ${{ number_format($item['price'] * $item['quantity'], 2) }}</span>
+                </li>
+                @endforeach
+            </ul>
+            <a href="{{ route('cart.index') }}" class="btn btn-primary mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-800">Go to Cart</a>
+            @else
+            <p class="mt-4">Your cart is empty.</p>
+            @endif
+        </div>
     </div>
 
-    <!-- Tambahkan CSS untuk Efek Hover dan Tombol Gradasi -->
-    <style>
-        /* Efek Hover untuk Kartu Produk */
-        .card-hover:hover {
-            transform: translateX(10px);
-            /* Geser ke kanan */
-            transition: transform 0.3s ease;
-            /* Animasi transisi */
-        }
+</body>
 
-        /* Efek Hover pada Gambar Produk (Jika Ada) */
-        .card-hover:hover .card-img-top {
-            transform: translateX(-10px);
-            /* Geser gambar ke kiri */
-            transition: transform 0.3s ease;
-        }
-
-        /* Styling untuk Tombol Gradasi */
-        .btn-gradient {
-            background: linear-gradient(90deg, #007bff, #00c6ff);
-            /* Gradasi biru */
-            color: white;
-            /* Warna teks putih */
-            border: none;
-            /* Menghapus border */
-        }
-
-        /* Efek Hover pada Tombol Gradasi */
-        .btn-gradient:hover {
-            background: linear-gradient(90deg, #0056b3, #008fbf);
-            /* Gradasi lebih gelap */
-        }
-    </style>
-
-    <!-- Tambahkan Bootstrap Icons untuk Ikon Keranjang -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" r
+</html>

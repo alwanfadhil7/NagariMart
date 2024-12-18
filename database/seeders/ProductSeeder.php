@@ -28,10 +28,10 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
-            'name' => 'Headphone',
+            'name' => 'Headphones',
             'price' => 200,
             'description' => 'Noise-cancelling headphones',
-            'image' => 'Headphone.jpg',
+            'image' => 'Headphones.jpg',
             'stock' => 15,  // Menambahkan nilai stock
             'category_id' => 1, // Pastikan memberikan nilai category_id
         ]);
