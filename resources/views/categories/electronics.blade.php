@@ -1,10 +1,20 @@
-@extends('layouts.app') <!-- Menggunakan layout app.blade.php -->
+<!DOCTYPE html>
+<html lang="en">
 
-@section('header')
-<h1 class="text-xl font-bold">Electronics Category</h1> <!-- Menampilkan header kategori elektronik -->
-@endsection
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics</title>
+</head>
 
-@section('content')
-<!-- Menggunakan komponen untuk menampilkan kategori elektronik -->
-<x-electronics-category :categoryData="$categoryData" />
-@endsection
+<body>
+    <h1>Electronics Category</h1>
+
+    <ul>
+        @foreach ($products as $product)
+        <li>{{ $product['name'] }} - ${{ $product['price'] }}</li>
+        @endforeach
+    </ul>
+</body>
+
+</html>

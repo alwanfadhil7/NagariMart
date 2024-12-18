@@ -111,14 +111,6 @@
                     <i class="fas fa-tv text-4xl text-blue-500 mb-2"></i>
                     <p class="font-semibold">Electronics</p>
                 </a>
-                <a href="{{ route('categories.fashion') }}" class="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
-                    <i class="fas fa-tshirt text-4xl text-pink-500 mb-2"></i>
-                    <p class="font-semibold">Fashion</p>
-                </a>
-                <a href="{{ route('categories.groceries') }}" class="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
-                    <i class="fas fa-shopping-basket text-4xl text-green-500 mb-2"></i>
-                    <p class="font-semibold">Groceries</p>
-                </a>
             </div>
         </section>
         <!-- Sisipkan footer -->
