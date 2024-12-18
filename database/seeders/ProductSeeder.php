@@ -9,6 +9,9 @@ class ProductSeeder extends Seeder
 {
     public function run()
     {
+
+
+
         Product::create([
             'name' => 'Laptop',
             'price' => 1500,

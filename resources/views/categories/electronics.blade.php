@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronics Store</title>
+    <title>Electronics Category</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -18,7 +18,7 @@
         <div class="container mx-auto px-4 flex items-center justify-between">
             <!-- Logo atau Judul Website -->
             <div class="text-2xl font-bold text-gray-800">
-                Electronics Store
+                Electronics Category
             </div>
 
             <!-- Navigation Bar -->
