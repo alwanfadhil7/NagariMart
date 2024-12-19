@@ -57,7 +57,13 @@
     @endif
 
     <div class="flex justify-center mt-4">
+        <form action="{{ route('checkout.process') }}" method="POST">
+            @csrf
+            <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600">
+                Proceed to Payment
+            </button>
         <a href="{{ route('electronics.index') }}" class="bg-gray-400 text-white px-6 py-3 rounded-md hover:bg-gray-500">Continue Shopping</a>
     </div>
+    
 </div>
 @endsection

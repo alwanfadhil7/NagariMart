@@ -21,6 +21,10 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 Route::get('/categories/electronics', [ProductController::class, 'electronics'])->name('categories.electronics');
 Route::get('/electronics', [ProductController::class, 'electronics'])->name('electronics.index');
 
+// checkout fitur
+Route::post('/checkout', [CheckoutController::class, 'processPayment'])->name('checkout.process');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

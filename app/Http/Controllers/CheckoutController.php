@@ -6,13 +6,25 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    public function index()
+    public function processPayment(Request $request)
     {
-        $cart = session('cart', []);
-        $total = collect($cart)->sum(function ($item) {
-            return $item['price'] * $item['quantity'];
-        });
+        // Fetch cart session data
+        $cart = session('cart');
 
-        return view('checkout.index', compact('cart', 'total'));
+        if (empty($cart)) {
+            return redirect()->route('cart.index')->with('error', 'Your cart is empty!');
+        }
+
+        // Calculate total price from cart
+        $totalAmount = array_reduce($cart, function ($sum, $item) {
+            return $sum + ($item['price'] * $item['quantity']);
+        }, 0);
+
+        // Simulate payment processing logic
+        // Here you can integrate with a payment gateway (e.g., PayPal, Stripe)
+
+        // Example of successful payment processing
+        session()->forget('cart');  // Clear the cart after successful payment
+        return redirect()->route('cart.index')->with('success', 'Payment successful, order placed!');
     }
 }
