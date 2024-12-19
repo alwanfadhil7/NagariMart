@@ -11,13 +11,15 @@ Route::get('/', function () {
 })->name('welcome');
 
 // Routes for Cart functionality
-Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');  // Add to cart
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');        // View cart
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');  // Menambah produk ke cart
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');          // Menampilkan cart
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update'); // Update cart
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove'); // Remove item
 
+
 // Electronics page
 Route::get('/categories/electronics', [ProductController::class, 'electronics'])->name('categories.electronics');
+Route::get('/electronics', [ProductController::class, 'index'])->name('electronics.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

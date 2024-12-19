@@ -13,7 +13,7 @@
 
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-blue-500">
+    <header class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
         <div class="container mx-auto flex justify-between items-center py-2 px-4">
             <div class="flex items-center">
                 <img alt="Logo" class="h-8" height="50" src="https://storage.googleapis.com/a1aa/image/lqSpp1LEcVqjIRgARqwu5eIUuqkOKjAFucTqaFJnag0wNp9JA.jpg" width="50" />
@@ -86,7 +86,7 @@
         </div>
     </header>
     <!-- Search Bar -->
-    <div class="bg-blue-500 py-4">
+    <div class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 py-4">
         <div class="container mx-auto flex justify-center">
             <input class="w-1/2 p-2 rounded-l-md" placeholder="Search..." type="text" />
             <button class="bg-white text-orange-500 p-2 rounded-r-md">

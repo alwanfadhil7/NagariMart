@@ -6,22 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NagariMart Footer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <footer class="bg-white py-8">
-        <div class="container mx-auto px-6 max-w-screen-lg">
+    <footer class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white w-full">
+        <div class="container mx-auto px-6 max-w-screen-lg py-8">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
                 <!-- Layanan Pelanggan -->
                 <div>
                     <h3 class="font-bold mb-4">Layanan Pelanggan</h3>
                     <ul class="text-sm leading-relaxed space-y-2">
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Bantuan</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Metode Pembayaran</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Lacak Pesanan Pembeli</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Lacak Pengiriman Penjual</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Gratis Ongkir</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Hubungi Kami</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Bantuan</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Metode Pembayaran</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Lacak Pesanan Pembeli</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Lacak Pengiriman Penjual</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Gratis Ongkir</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Hubungi Kami</a></li>
                     </ul>
                 </div>
 
@@ -29,14 +30,14 @@
                 <div>
                     <h3 class="font-bold mb-4">Jelajahi NagariMart</h3>
                     <ul class="text-sm leading-relaxed space-y-2">
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Tentang Kami</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Kebijakan Privasi</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Blog</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">NagariMart Mall</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Seller Centre</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Flash Sale</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Kontak Media</a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-800">Shopee Affiliate</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Blog</a></li>
+                        <li><a href="#" class="hover:text-gray-500">NagariMart Mall</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Seller Centre</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Flash Sale</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Kontak Media</a></li>
+                        <li><a href="#" class="hover:text-gray-500">Shopee Affiliate</a></li>
                     </ul>
                 </div>
 
@@ -54,10 +55,10 @@
                 <div>
                     <h3 class="font-bold mb-4">Ikuti Kami</h3>
                     <ul class="text-sm leading-relaxed space-y-2">
-                        <li><a class="text-gray-600 hover:text-gray-800" href="#" aria-label="Facebook"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-800" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-800" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a class="text-gray-600 hover:text-gray-800" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a class="hover:text-gray-500" href="#" aria-label="Facebook"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a class="hover:text-gray-500" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a class="hover:text-gray-500" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a class="hover:text-gray-500" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
                     </ul>
                     <h3 class="font-bold mt-4 mb-4">Keamanan</h3>
                     <img class="h-12 w-32" alt="TÜV Rheinland Certified logo" src="https://storage.googleapis.com/a1aa/image/rvstfpR6JG1hUan8iHfevQXB1tp6uJHmYVIvnNbVV8NDeLtPB.jpg" />
@@ -76,7 +77,7 @@
             </div>
 
             <!-- Footer Bottom -->
-            <div class="mt-8 border-t pt-4 text-center text-gray-600">
+            <div class="mt-8 border-t pt-4 text-center text-gray-800 dark:text-white bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 w-full">
                 <p>&copy; NagariMart 2024.</p>
             </div>
         </div>
