@@ -14,23 +14,23 @@
 <body>
 
     <!-- Header Section -->
-    <header class="bg-white shadow-md py-4">
+    <header class="bg-white dark:bg-gray-800 shadow-md py-4">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <!-- Logo atau Judul Website -->
-            <div class="text-2xl font-bold text-gray-800">
+            <div class="text-2xl font-bold text-white">
                 Electronics Category
             </div>
 
             <!-- Navigation Bar -->
             <nav class="space-x-6">
-                <a href="#" class="text-gray-600 hover:text-blue-500">Home</a>
-                <a href="#" class="text-gray-600 hover:text-blue-500">Shop</a>
-                <a href="#" class="text-gray-600 hover:text-blue-500">Contact</a>
+                <a href="#" class="text-white hover:text-white-500">Home</a>
+                <a href="#" class="text-white hover:text-blue-500">Shop</a>
+                <a href="#" class="text-white hover:text-blue-500">Contact</a>
             </nav>
 
             <!-- Cart Icon dengan Jumlah Item -->
             <div class="relative">
-                <a href="{{ route('cart.index') }}" class="text-gray-600 hover:text-blue-500 flex items-center space-x-2">
+                <a href="{{ route('cart.index') }}" class="text-white hover:text-white-500 flex items-center space-x-2">
                     <i class="fa fa-shopping-cart text-xl"></i>
                     <span class="absolute top-0 right-0 text-xs bg-red-600 text-white rounded-full px-1 py-0.5">
                         {{ session('cart') ? count(session('cart')) : 0 }}
