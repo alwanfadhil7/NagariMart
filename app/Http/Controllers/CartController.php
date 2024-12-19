@@ -19,11 +19,11 @@ class CartController extends Controller
         $cart = session('cart', []);
 
         $this->addProductToCart($cart, $product);
+        session(['cart' => $cart]);  // Save cart in session
 
-        session(['cart' => $cart]);  // Simpan cart ke session
-
-        return redirect()->route('electronics.index');
+        return redirect()->route('electronics.index')->with('success', 'Product added to cart');
     }
+
 
     // Menampilkan cart
     public function index()
@@ -40,6 +40,8 @@ class CartController extends Controller
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'quantity' => 'required|integer|min:1',
+        ], [
+            'quantity.min' => 'Quantity must be at least 1.',
         ]);
 
         $cart = session('cart', []);
@@ -57,7 +59,7 @@ class CartController extends Controller
             }
         }
 
-        session(['cart' => $cart]);  // Simpan perubahan ke session
+        session(['cart' => $cart]);
 
         return redirect()->route('cart.index')->with('success', 'Cart updated successfully');
     }
@@ -80,9 +82,9 @@ class CartController extends Controller
             return $item['id'] != $product_id;
         });
 
-        $cart = array_values($cart);  // Reindex array setelah menghapus item
+        $cart = array_values($cart); // Reindex array after removal
 
-        session(['cart' => $cart]);  // Simpan perubahan ke session
+        session(['cart' => $cart]);
 
         return redirect()->route('cart.index')->with('success', 'Item removed from cart');
     }
@@ -93,19 +95,18 @@ class CartController extends Controller
         $found = false;
         foreach ($cart as $key => $item) {
             if ($item['id'] == $product->id) {
-                $cart[$key]['quantity'] += 1;  // Menambah kuantitas produk jika sudah ada
+                $cart[$key]['quantity'] += 1;  // Increase quantity if already in cart
                 $found = true;
                 break;
             }
         }
 
         if (!$found) {
-            // Menambahkan produk baru ke cart
             $cart[] = [
                 'id' => $product->id,
                 'name' => $product->name,
                 'price' => $product->price,
-                'quantity' => 1,  // Menambah produk dengan kuantitas 1
+                'quantity' => 1,  // Add product with quantity 1
             ];
         }
     }

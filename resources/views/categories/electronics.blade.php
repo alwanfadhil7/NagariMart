@@ -78,8 +78,12 @@
                     <!-- Harga Produk -->
                     <p class="text-lg font-bold">${{ number_format($product->price, 2) }}</p>
 
-                    <!-- Tombol Tambah ke Keranjang -->
-                    <a href="#" class="btn btn-gradient w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700 mt-4">Add to Cart</a>
+                    <!-- Form untuk Menambah ke Keranjang -->
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button type="submit" class="btn btn-gradient w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700 mt-4">Add to Cart</button>
+                    </form>
                 </div>
             </div>
             @endforeach

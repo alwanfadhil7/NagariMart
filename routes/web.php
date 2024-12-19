@@ -19,7 +19,7 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 
 // Electronics page
 Route::get('/categories/electronics', [ProductController::class, 'electronics'])->name('categories.electronics');
-Route::get('/electronics', [ProductController::class, 'index'])->name('electronics.index');
+Route::get('/electronics', [ProductController::class, 'electronics'])->name('electronics.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
